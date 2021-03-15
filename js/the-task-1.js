@@ -4,20 +4,14 @@
 // которое передали во время вызова функции delay.
 
 
-const delay = ms => {
-    return new Promise((resolve, reject) => {
-        const time = Math.random() > 0.5;
-
-        setTimeout(() => {
-            if (time) {
-                resolve(ms);
-            }
-
-            reject(ms);
-        });
-    });
+const delay = (ms) => {
+    return new Promise((resolve) =>
+      setTimeout(() => {
+        resolve(ms);
+      }, ms)
+    );
 };
-
+  
 const logger = time => console.log(`Resolved after ${time} ms`);
 
 // Вызовы функции для проверки
